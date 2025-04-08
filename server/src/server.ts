@@ -5,6 +5,7 @@ import "dotenv/config";
 // internal imports
 import ConnectDatabase from "./config/db";
 import { corsMiddleware } from "./middlewares/cors";
+import authRoutes from "./routes/auth";
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -18,6 +19,9 @@ app.use(
     extended: true,
   })
 );
+
+// routes
+app.use("/auth", authRoutes);
 
 // listening server
 (async () => {
