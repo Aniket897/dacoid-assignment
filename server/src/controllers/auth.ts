@@ -110,7 +110,7 @@ const login = async (req: Request, resp: Response, next: NextFunction) => {
 
     const token = sign({ id: user._id }, process.env.JWT_SECRET as string);
 
-    resp.cookie("auth-token", token, {
+    resp.cookie("authentication-token", token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
@@ -133,7 +133,7 @@ const login = async (req: Request, resp: Response, next: NextFunction) => {
   }
 };
 
-export const me = async (req: Request, resp: Response, next: NextFunction) => {
+const me = async (req: Request, resp: Response, next: NextFunction) => {
   try {
     const user = req.user;
 
@@ -169,8 +169,22 @@ export const me = async (req: Request, resp: Response, next: NextFunction) => {
   }
 };
 
+const logout = async (req: Request, resp: Response, next: NextFunction) => {
+  try {
+    resp.cookie("authentication-token", "");
+    resp.status(200).json({
+      message: "logged out successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    resp.status(500).json({
+      message: "Internal server error",
+    });
+  }
+};
 export default {
   login,
   register,
   me,
+  logout,
 };

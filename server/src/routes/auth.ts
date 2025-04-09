@@ -7,5 +7,6 @@ const routes = Router();
 routes.get("/", authMiddleware, authControllers.me);
 routes.post("/login", authControllers.login);
 routes.post("/register", authControllers.register);
+routes.get("/logout", authControllers.logout);
 
 export default routes;
