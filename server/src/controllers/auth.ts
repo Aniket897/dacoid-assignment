@@ -3,6 +3,11 @@ import User from "../models/user";
 import { compareSync, hashSync } from "bcrypt";
 import { sign } from "jsonwebtoken";
 
+declare module "Express" {
+  export interface Request {
+    user?: string;
+  }
+}
 
 
 const register = async (req: Request, resp: Response, next: NextFunction) => {

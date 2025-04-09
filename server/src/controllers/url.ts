@@ -2,6 +2,12 @@ import { NextFunction, Request, Response } from "express";
 import { generate } from "shortid";
 import Url from "../models/url";
 
+declare module "Express" {
+  export interface Request {
+    user?: string;
+  }
+}
+
 const shortUrl = async (req: Request, resp: Response, next: NextFunction) => {
   try {
     const { url } = req.body;
