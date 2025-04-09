@@ -7,6 +7,8 @@ import Register from "@/pages/auth/Register";
 import Dashboard from "@/pages/dashboard";
 import ProtectRoutes from "@/components/ProtectRoutes";
 import { useAuth } from "./hooks/useAuth";
+import Redirect from "./components/Redirect";
+import Analytics from "./pages/dashboard/Analytics";
 
 function App() {
   const { loading } = useAuth();
@@ -31,7 +33,11 @@ function App() {
         {/* Private Routes */}
         <Route element={<ProtectRoutes type="dashboard" />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/:id/analytics" element={<Analytics />} />
         </Route>
+
+        {/* Rediect Route */}
+        <Route path="/:id" element={<Redirect />} />
       </Routes>
     </>
   );

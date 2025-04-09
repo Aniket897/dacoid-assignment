@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="flex-1 flex items-center justify-center flex-col gap-6 text-center w-full md:w-[60%] mx-auto leading-relaxed">
-        <h1 className="font-bold text-xl md:text-7xl">
+      <div className="flex-1 flex items-center justify-center flex-col gap-6 text-center w-[90vw] md:w-[60%] mx-auto">
+        <h1 className="leading-15 md:leading-22 font-extrabold text-4xl md:text-7xl">
           <span className="underline underline-offset-8">Short</span>,{" "}
           <span className="underline underline-offset-8">Track</span> and{" "}
           <span className="underline underline-offset-8">Analyze</span> With
