@@ -4,13 +4,6 @@ import { compareSync, hashSync } from "bcrypt";
 import { sign } from "jsonwebtoken";
 
 
-declare module "express" {
-  export interface Request {
-    user: string;
-  }
-}
-
-
 
 const register = async (req: Request, resp: Response, next: NextFunction) => {
   try {
