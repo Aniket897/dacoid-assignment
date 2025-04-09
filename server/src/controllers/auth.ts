@@ -55,9 +55,6 @@ const register = async (req: Request, resp: Response, next: NextFunction) => {
     const token = sign({ id: user._id }, process.env.JWT_SECRET as string);
 
     resp.cookie("authentication-token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
       maxAge: 24 * 60 * 60 * 1000 * 7,
     });
 
@@ -118,9 +115,6 @@ const login = async (req: Request, resp: Response, next: NextFunction) => {
     const token = sign({ id: user._id }, process.env.JWT_SECRET as string);
 
     resp.cookie("authentication-token", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
       maxAge: 24 * 60 * 60 * 1000 * 7,
     });
 
