@@ -9,7 +9,6 @@ declare module "express" {
   }
 }
 
-
 const register = async (req: Request, resp: Response, next: NextFunction) => {
   try {
     const { email, password, name } = req.body;
@@ -56,6 +55,9 @@ const register = async (req: Request, resp: Response, next: NextFunction) => {
 
     resp.cookie("authentication-token", token, {
       maxAge: 24 * 60 * 60 * 1000 * 7,
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
     });
 
     resp.status(200).json({
@@ -116,6 +118,9 @@ const login = async (req: Request, resp: Response, next: NextFunction) => {
 
     resp.cookie("authentication-token", token, {
       maxAge: 24 * 60 * 60 * 1000 * 7,
+      httpOnly: true,
+      secure: true,
+      sameSite: "none",
     });
 
     resp.status(200).json({
