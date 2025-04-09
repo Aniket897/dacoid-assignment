@@ -4,7 +4,7 @@ import { compareSync, hashSync } from "bcrypt";
 import { sign } from "jsonwebtoken";
 
 
-declare module "Express" {
+declare module "express" {
   export interface Request {
     user: string;
   }

@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { JwtPayload, verify } from "jsonwebtoken";
 
-declare module "Express" {
+declare module "express" {
   export interface Request {
     user: string;
   }
