@@ -4,6 +4,12 @@ import Url from "../models/url";
 import { formatUrl, formatUrlList } from "../helpers";
 import url from "../models/url";
 
+declare module "Express" {
+  export interface Request {
+    user: string;
+  }
+}
+
 const shortUrl = async (req: Request, resp: Response, next: NextFunction) => {
   try {
     const { url } = req.body;

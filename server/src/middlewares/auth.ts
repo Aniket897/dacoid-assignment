@@ -3,7 +3,7 @@ import { JwtPayload, verify } from "jsonwebtoken";
 
 declare module "Express" {
   export interface Request {
-    user?: string;
+    user: string;
   }
 }
 
