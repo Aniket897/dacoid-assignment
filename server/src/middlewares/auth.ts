@@ -15,8 +15,9 @@ export const authMiddleware = async (
   try {
     const token = req.cookies ? req.cookies["authentication-token"] : null;
 
+    console.log(token);
     if (!token) {
-      resp.status(500).json({
+      resp.status(400).json({
         message: "Unauthorized",
       });
       return;
