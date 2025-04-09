@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { generate } from "shortid";
 import Url from "../models/url";
 
-declare module "Express" {
+declare module "express" {
   export interface Request {
     user?: string;
   }
