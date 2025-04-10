@@ -9,12 +9,18 @@ import ProtectRoutes from "@/components/ProtectRoutes";
 import { useAuth } from "./hooks/useAuth";
 import Redirect from "./components/Redirect";
 import Analytics from "./pages/dashboard/Analytics";
+import { Loader } from "lucide-react";
 
 function App() {
   const { loading } = useAuth();
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="flex items-center justify-center min-h-screen flex-col gap-3">
+        <Loader className="animate-spin" />
+        <p>Loading..</p>
+      </div>
+    );
   }
 
   return (
