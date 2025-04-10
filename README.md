@@ -1,3 +1,7 @@
+email : aniket@gmail.com
+password : 1111111
+
+
 # ⚙️ Application Setup (Client + Server)
 
 
